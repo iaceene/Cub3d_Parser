@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+cub3D_Parser
 
 # Object files
 *.o
@@ -50,3 +51,4 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
