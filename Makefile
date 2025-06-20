@@ -21,24 +21,9 @@ SRCS = \
     $(SRC_DIR)/components/parsing/map_parsing_utile_6.c \
     $(SRC_DIR)/components/parsing/map_parsing_utile_7.c \
     $(SRC_DIR)/components/parsing/map_parsing.c \
-    $(SRC_DIR)/components/rendring/core/init.c \
-    $(SRC_DIR)/components/rendring/player/controls.c \
-    $(SRC_DIR)/components/rendring/player/movement.c \
-    $(SRC_DIR)/components/rendring/utils/map_utils.c \
-    $(SRC_DIR)/components/rendring/graphics.c \
-    $(SRC_DIR)/components/rendring/utils_rycaster.c \
-    $(SRC_DIR)/components/rendring/minimap/utils_one_minimap.c \
-    $(SRC_DIR)/components/rendring/minimap/utils_two_minimap.c \
-    $(SRC_DIR)/components/rendring/minimap/minimap.c \
-    $(SRC_DIR)/components/rendring/raycaster.c \
-    $(SRC_DIR)/components/rendring/floor_sky/floor_sky.c \
-    $(SRC_DIR)/components/rendring/weapon/weapon.c \
-    $(SRC_DIR)/components/rendring/wall/wall.c \
-    $(SRC_DIR)/components/rendring/wall/utils.c \
-    $(SRC_DIR)/components/rendring/weapon/init_weapon.c \
     $(SRC_DIR)/main/main.c
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-NAME = cub3D
+NAME = cub3D_Parser
 
 all: $(OBJ_DIR) $(MLX_LIB) $(LIBFT_LIB) $(NAME)
 
