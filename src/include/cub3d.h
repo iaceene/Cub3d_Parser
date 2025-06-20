@@ -6,7 +6,7 @@
 /*   By: yaajagro <yaajagro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 18:17:09 by yaajagro          #+#    #+#             */
-/*   Updated: 2025/06/19 01:42:16 by yaajagro         ###   ########.fr       */
+/*   Updated: 2025/06/20 02:11:43 by yaajagro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,46 +227,12 @@ int		check_file(char *filename);
 int		check_texture(t_cub *cub);
 int		check_comas(char *clr1, char *clr2);
 void	reset_texture(t_texture *textur);
-int		init_window(t_cub *cub);
-int		event_hook_window(t_cub *cub);
-int		init_image(t_cub *cub);
-int		key_release(int key, t_cub *cub);
-int		key_press(int key, t_cub *cub);
-int		close_window(t_cub *cub);
-void	handle_movement(t_cub *cub);
-bool	touch_one(float px, float py, t_cub *cub);
-float	use_distance(float x, float y);
-float	use_fixed_dist(float x2, float y2, t_cub *game);
-void	my_pixel_put(int x, int y, t_img *img, int color);
-void	clear_image(t_cub *cub);
-void	render_draw_square(int x, int y, int size, t_cub *cub);
-void	render_draw_minimap(t_cub *cub);
-int		game_loop(t_cub *cub);
-int		mouse_move(int x, int y, t_cub *cub);
-void	try_open_door(t_cub *cub);
-void	my_pixel_put_img(t_img *img, int x, int y, int color);
-void	draw_split_background(t_cub *cub);
-void	draw_weapon(t_cub *cub);
-int		init_textures_weapon(t_cub *cub);
-void	init_weapon_animation_params(t_cub *cub);
-void	init_texture_wall(t_cub *cub);
-void	draw_door(t_cub *cub, int screen_x, t_ray_data *ray, float dist);
-void	draw_wall(t_cub *cub, int screen_x, t_ray_data *ray, float dist);
-void	init_ray_params(t_ray_params *params, t_cub *cub, float ray_angle);
-void	draw_minimap_walls(t_cub *cub, int center_x, int center_y, int radius);
-void	draw_minimap_doors(t_cub *cub, int center_x, int center_y, int radius);
-void	draw_minimap_player(t_cub *cub, int center_x, int center_y);
-void	init_minimap_values(t_cub *cub);
-void	draw_border_pixel(t_cub *cub, int x, int y, int radius);
-int		calculate_distance_sq(int x, int y, int center_x, int center_y);
-int		get_map_height(char **map);
 int		check_chars(char *s);
 int		add_texture(char *path, t_texture *tex, int flg);
 int		palyer_chars(char c);
 int		get_len(char **s);
 int		xe_cond(int c);
 void	check_rendring_depend(t_cub *cub);
-void	destroy_imgs_exit(t_cub *cub, char *msg);
 int		only_space_line(char *line);
 
 #endif
