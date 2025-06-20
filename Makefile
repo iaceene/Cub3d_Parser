@@ -52,8 +52,6 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 
-bonus: fclean all
-
 re: fclean all
 
 .PHONY: all clean fclean re
