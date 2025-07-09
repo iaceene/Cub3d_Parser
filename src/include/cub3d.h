@@ -6,7 +6,7 @@
 /*   By: yaajagro <yaajagro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 18:17:09 by yaajagro          #+#    #+#             */
-/*   Updated: 2025/06/20 02:11:43 by yaajagro         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:14:37 by yaajagro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@
 # define PLAYER_COLOR 0x00FF00
 # define BLOCK_SIZE 10
 # define PLAYER_SIZE 3
+# define TIMESTAMP 1
 
 typedef struct s_map
 {

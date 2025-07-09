@@ -6,7 +6,7 @@
 /*   By: yaajagro <yaajagro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 22:14:50 by yaajagro          #+#    #+#             */
-/*   Updated: 2025/06/17 23:26:19 by yaajagro         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:34:36 by yaajagro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,31 @@ static void	print_log_message(char *msg, int fd)
 	}
 }
 
+void log_time()
+{
+    struct timeval			av;
+    static struct timeval	start;
+    static int 				i;
+
+    if (!i)
+    {
+        gettimeofday(&start, NULL);
+        gettimeofday(&av, NULL);
+    }
+    else
+        gettimeofday(&av, NULL);
+    if (av.tv_usec < start.tv_usec)
+	{
+        av.tv_sec -= 1;
+        av.tv_usec += 1000000;
+    }
+    i++;
+    write(1, "[ ", 2);
+    print_log_message(ft_itoa((int)(av.tv_sec - start.tv_sec)), 1);
+    print_log_message(ft_strjoin(".", ft_itoa((int)(av.tv_usec - start.tv_usec))), 1);
+    write(1, "s ] ", 4);make 
+}
+
 void	log_state(char *msg, int flag)
 {
 	int		fd;
@@ -55,6 +80,8 @@ void	log_state(char *msg, int flag)
 		return ;
 	fd = 1;
 	clr = COLOR_GREEN;
+	if (TIMESTAMP)
+		log_time();
 	if (!flag)
 	{
 		fd = 2;
