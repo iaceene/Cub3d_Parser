@@ -19,7 +19,7 @@ This project parses `.cub` map files, validates map data and textures, and sets 
 ## Example Output
 
 ```bash
-root@e1r10p7 yaajagro/Cub3d_Parser $ ./cub3D_Parser maps/cheese_maze.cub                                           (git)-[main]-
+root@e1r10p7 yaajagro/Cub3d_Parser $ ./cub3D_Parser maps/cheese_maze.cub 
 [ 0.0s ] [ ⏳ INIT PARSING ]
 [ 0.54s ] [ ⏳ CHECKING FILE EXTENTION ]
 [ 0.107s ] [ ✅ VALID EXTENTION ]
