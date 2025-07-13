@@ -233,7 +233,7 @@ int		add_texture(char *path, t_texture *tex, int flg);
 int		palyer_chars(char c);
 int		get_len(char **s);
 int		xe_cond(int c);
-void	check_rendring_depend(t_cub *cub);
 int		only_space_line(char *line);
+void	print_prog();
 
 #endif

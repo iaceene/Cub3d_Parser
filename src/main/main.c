@@ -19,7 +19,6 @@ int	main(int ac, char **av)
 	log_state("INIT PARSING", 3);
 	if (map_parsing(ac, av, &cub))
 		return (ft_malloc(-1), 1);
-	check_rendring_depend(&cub);
 	log_state("VALID MAP", 1);
 	ft_malloc(-1);
 	return (0);

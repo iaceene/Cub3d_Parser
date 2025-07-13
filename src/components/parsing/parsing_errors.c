@@ -12,17 +12,18 @@
 
 #include "../../include/cub3d.h"
 
-void	exit_cub(void)
+void exit_cub(void)
 {
 	write(1, COLOR_RED, ft_strlen(COLOR_RED));
 	write(1, " ]\n", 4);
+	print_prog();
 	write(1, "[ 🚧 CLEANING AND EXITING ]\n", 31);
 	write(1, COLOR_RESET, ft_strlen(COLOR_RESET));
 	ft_malloc(-1);
 	exit(1);
 }
 
-static void	print_log_prefix(int fd, int flag)
+static void print_log_prefix(int fd, int flag)
 {
 	if (fd == 2)
 		write(2, "[ Error ]\n", 10);
@@ -34,9 +35,9 @@ static void	print_log_prefix(int fd, int flag)
 		write(fd, "[ ⛔ ", 7);
 }
 
-static void	print_log_message(char *msg, int fd)
+static void print_log_message(char *msg, int fd)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (msg[i])
@@ -48,37 +49,59 @@ static void	print_log_message(char *msg, int fd)
 
 void log_time()
 {
-    struct timeval			av;
-    static struct timeval	start;
-    static int 				i;
+	struct timeval av;
+	static struct timeval start;
+	static int i;
 
-    if (!i)
-    {
-        gettimeofday(&start, NULL);
-        gettimeofday(&av, NULL);
-    }
-    else
-        gettimeofday(&av, NULL);
-    if (av.tv_usec < start.tv_usec)
+	if (!i)
 	{
-        av.tv_sec -= 1;
-        av.tv_usec += 1000000;
-    }
-    i++;
-    write(1, "[ ", 2);
-    print_log_message(ft_itoa((int)(av.tv_sec - start.tv_sec)), 1);
-    print_log_message(ft_strjoin(".", ft_itoa((int)(av.tv_usec - start.tv_usec))), 1);
-    write(1, "s ] ", 4);make 
+		gettimeofday(&start, NULL);
+		gettimeofday(&av, NULL);
+	}
+	else
+		gettimeofday(&av, NULL);
+	if (av.tv_usec < start.tv_usec)
+	{
+		av.tv_sec -= 1;
+		av.tv_usec += 1000000;
+	}
+	i++;
+	write(1, "[ ", 2);
+	print_log_message(ft_itoa((int)(av.tv_sec - start.tv_sec)), 1);
+	print_log_message(ft_strjoin(".", ft_itoa((int)(av.tv_usec - start.tv_usec))), 1);
+	write(1, "s ] ", 4);
 }
 
-void	log_state(char *msg, int flag)
+void print_prog()
 {
-	int		fd;
-	char	*clr;
+	static int i;
+	int j;
+
+	j = -1;
+	write(1, "[", 1);
+	while (++j < i)
+		write(1, "*", 1);
+	while (++j < 75)
+		write(1, "-", 1);
+	
+	write(1, "]\n", 2);
+	i++;
+	if (i + 25 == 100)
+		printf("Done 100%%\n");
+	else
+		printf("Progress %d%%\n", i + 25);
+}
+
+void log_state(char *msg, int flag)
+{
+	int fd;
+	char *clr;
 
 	if (!msg)
-		return ;
+		return;
 	fd = 1;
+	usleep(1 * 15000);
+	write(fd, "\x1B[H\x1B[2J", ft_strlen("\x1B[H\x1B[2J"));
 	clr = COLOR_GREEN;
 	if (TIMESTAMP)
 		log_time();
@@ -96,5 +119,6 @@ void	log_state(char *msg, int flag)
 		exit_cub();
 	else
 		write(fd, " ]\n", 3);
+	print_prog();
 	write(fd, COLOR_RESET, ft_strlen(COLOR_RESET));
 }
