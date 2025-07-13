@@ -81,15 +81,14 @@ void print_prog()
 	write(1, "[", 1);
 	while (++j < i)
 		write(1, "*", 1);
-	while (++j < 75)
+	while (++j < 43)
 		write(1, "-", 1);
-	
 	write(1, "]\n", 2);
 	i++;
-	if (i + 25 == 100)
+	if (i + 57 == 100)
 		printf("Done 100%%\n");
 	else
-		printf("Progress %d%%\n", i + 25);
+		printf("Progress %d%%\n", i + 57);
 }
 
 void log_state(char *msg, int flag)
@@ -119,6 +118,7 @@ void log_state(char *msg, int flag)
 		exit_cub();
 	else
 		write(fd, " ]\n", 3);
-	print_prog();
+	if (ft_strncmp("CHECKING LINE", msg, ft_strlen("CHECKING LINE")))
+		print_prog();
 	write(fd, COLOR_RESET, ft_strlen(COLOR_RESET));
 }
