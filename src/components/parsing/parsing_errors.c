@@ -16,7 +16,7 @@ void exit_cub(void)
 {
 	write(1, COLOR_RED, ft_strlen(COLOR_RED));
 	write(1, " ]\n", 4);
-	print_prog();
+	print_prog(1);
 	write(1, "[ 🚧 CLEANING AND EXITING ]\n", 31);
 	write(1, COLOR_RESET, ft_strlen(COLOR_RESET));
 	ft_malloc(-1);
@@ -72,9 +72,10 @@ void log_time()
 	write(1, "s ] ", 4);
 }
 
-void print_prog()
+void print_prog(int flag)
 {
 	static int i;
+	static int pr;
 	int j;
 
 	j = -1;
@@ -84,11 +85,17 @@ void print_prog()
 	while (++j < 43)
 		write(1, "-", 1);
 	write(1, "]\n", 2);
-	i++;
+	if (flag)
+		i++;
 	if (i + 57 == 100)
+	{
 		printf("Done 100%%\n");
-	else
+		pr = 1;
+	}
+	else if (!pr)
 		printf("Progress %d%%\n", i + 57);
+	else
+		printf("Done 100%%\n");
 }
 
 void log_state(char *msg, int flag)
@@ -119,6 +126,9 @@ void log_state(char *msg, int flag)
 	else
 		write(fd, " ]\n", 3);
 	if (ft_strncmp("CHECKING LINE", msg, ft_strlen("CHECKING LINE")))
-		print_prog();
+		print_prog(1);
+	else
+		print_prog(0);
+
 	write(fd, COLOR_RESET, ft_strlen(COLOR_RESET));
 }

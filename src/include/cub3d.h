@@ -234,6 +234,6 @@ int		palyer_chars(char c);
 int		get_len(char **s);
 int		xe_cond(int c);
 int		only_space_line(char *line);
-void	print_prog();
+void	print_prog(int flag);
 
 #endif
