@@ -1,5 +1,8 @@
 # Cub3D Parser
 
+![Screencastfrom2025-07-1316-40-39online-video-cutter com-ezgif com-crop](https://github.com/user-attachments/assets/7d47d95f-d277-4140-8160-f5cb902b75b9)
+
+
 A **Cub3D raycasting project parser** and basic renderer built in C using the MiniLibX (mlx) graphics library.
 This project parses `.cub` map files, validates map data and textures, and sets up data structures for a raycasting engine, similar to the classic Wolfenstein 3D style.
 
